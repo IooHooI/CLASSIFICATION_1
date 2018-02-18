@@ -5,8 +5,7 @@
 ; 1987.
 ;
 
-replacement therapy, underreplacement, overreplacement,
-negative.			|  classes
+replacement therapy, underreplacement, overreplacement, negative.			|  classes
 
 age:				continuous.
 sex:				M, F.

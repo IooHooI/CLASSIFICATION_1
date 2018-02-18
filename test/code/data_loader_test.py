@@ -2,7 +2,7 @@ import unittest
 from source.code import data_loader
 
 
-class TestMarkdownPy(unittest.TestCase):
+class test_data_loader(unittest.TestCase):
 
     def setUp(self):
         self.data_paths = [

@@ -5,8 +5,7 @@
 ; 1987.
 ;
 
-increased binding protein, decreased binding protein,
-negative.			|  classes
+hyperthyroid, T3 toxic, goitre, secondary toxic, negative.			|  classes
 
 age:				continuous.
 sex:				M, F.
