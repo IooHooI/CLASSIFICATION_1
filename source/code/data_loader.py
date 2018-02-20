@@ -39,7 +39,11 @@ class DataLoader:
             observation[0] = None
         if observation[1] == '?':
             observation[1] = None
-        observation[-1] = self._classes_map[observation[-1]]
+        elif observation[1] == 'M':
+            observation[1] = 0
+        else:
+            observation[1] = 1
+        observation[-1] = self._classes_map[observation[-1]] > 0
         self._to_float(observation, 17)
         self._to_float(observation, 19)
         self._to_float(observation, 21)
