@@ -1,5 +1,7 @@
 import pandas as pd
-
+from sklearn.base import BaseEstimator
+from sklearn.base import TransformerMixin
+from sklearn.preprocessing import Imputer
 
 class DataLoader:
 
@@ -56,3 +58,28 @@ class DataLoader:
             observation[index] = float(observation[index])
         else:
             observation[index] = None
+
+
+class ItemSelector(BaseEstimator, TransformerMixin):
+    def __init__(self, columns):
+        self.columns = columns
+
+    def fit(self, x, y=None):
+        return self
+
+    def transform(self, data):
+        return data[self.columns]
+
+
+class MyImputer(BaseEstimator, TransformerMixin):
+    def __init__(self, strategy=None):
+        self.strategy = strategy
+        self.imputer = Imputer(strategy=self.strategy)
+
+    def fit(self, x, y=None):
+        return self
+
+    def transform(self, data):
+        columns = data.columns
+        data = pd.DataFrame(self.imputer.fit_transform(data), columns=columns)
+        return data
